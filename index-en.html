@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+<link rel="icon" type="image/png" href="resources/rdf.icon"/> <title>EU Data Act Ontology by OEG</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://www.semanticweb.org/dataact","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://www.semanticweb.org/dataact","name":"EU Data Act Ontology by OEG", "headline":"The EU Data Act (Regulation (EU) 2023/2854) establishes a comprehensive framework for data access and sharing across the European data economy, yet its complexity hinders automated compliance and technical implementation. This paper presents the EU Data Act Ontology, a formal, machine-readable representation of the regulation designed to enable automated reasoning, compliance checking, and semantic interoperability. The ontology formalizes rights and obligations of users, data holders, and data recipients using deontic logic, models B2C, B2B, and B2G data-sharing scenarios, and traces all concepts to specific articles of the Data Act. Developed following the NeOn Methodology and competency question-driven design, the ontology contains 80 classes and 80+ properties organized into modules representing actors, legal rules, FRAND conditions, and data types. Applications include automated contract validation, decision support systems, regulatory oversight tools, and semantic infrastructure for European data spaces, providing a foundational layer for machine-readable data governance aligned with EU regulatory principles.", "dateReleased":"17.09.2025", "dateModified":"31.10.2025", "version":"2.0", "license":"http://creativecommons.org/licenses/by-sa/4.0/", "author":[{"@type":"Person","name":"Linde, F."},{"@type":"Person","name":"Leyva Sánchez, S."},{"@type":"Person","name":"Manab, M. A."}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+ $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ };    $(function(){
+      $("#abstract").load("sections/abstract-en.html"); 
+      $("#introduction").load("sections/introduction-en.html"); 
+      $("#nstable").load("sections/ns-en.html"); 
+      $("#overview").load("sections/overview-en.html"); 
+      $("#description").load("sections/description-en.html"); 
+      $("#references").load("sections/references-en.html"); 
+      $("#crossref").load("sections/crossref-en.html", null, loadHash); 
+    });
+    </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>EU Data Act Ontology by OEG</h1>
+<h2>Release: 17.09.2025</h2>
+
+
+<dl>
+<dt>Modified on: 31.10.2025</dt>
+<dt>Latest version:</dt>
+<dd><a href="http://www.semanticweb.org/dataact">http://www.semanticweb.org/dataact</a></dd>
+<dt>Revision:</dt>
+<dd>2.0</dd>
+<dt>Authors:</dt>
+<dd>Linde, F., UPM<a href="mailto:f.linde@upm.es">&#9993;</a></dd><dd>Leyva Sánchez, S., UPM<a href="mailto:sheyla.leyva.sanchez@upm.es">&#9993;</a></dd><dd>Manab, M. A., UPM<a href="mailto:meem.manab@upm.es">&#9993;</a></dd>
+
+<dt>Imported Ontologies:</dt>
+<dd><a href="http://creativecommons.org/ns">Creative Commons</a></dd><dd><a href="https://w3c.github.io/dpv/2.2/dpv">DPV</a></dd><dd><a href="http://www.w3.org/2002/07/owl">OWL</a></dd><dd><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns">RDF</a></dd><dd><a href="http://www.w3.org/XML/1998/namespace">XML</a></dd><dd><a href="http://www.w3.org/2001/XMLSchema">XSD</a></dd><dd><a href="https://www.w3.org/ns/odrl/2">ODRL</a></dd><dd>SKOS</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-http://creativecommons.org/licenses/by_sa/4.0/-blue.svg" alt="http://creativecommons.org/licenses/by-sa/4.0/" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd> Revision: 2.0.</dd>
+</dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"></div>
+<div id="toc"></div>     <div id="introduction"></div>
+	  <div id="nstable"></div>
+     <div id="overview"></div>
+     <div id="description"></div>
+     <div id="crossref"></div>
+     <div id="references"></div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
