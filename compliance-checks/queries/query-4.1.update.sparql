@@ -1,0 +1,29 @@
+PREFIX dataact: <http://www.semanticweb.org/dataact#>
+PREFIX dpv: <https://w3c.github.io/dpv/2.2/dpv/#>
+
+SELECT DISTINCT 
+    ?b2cSharing 
+    ?user 
+    ?holder 
+    ?product
+    ?data 
+    ("DATA_NOT_PROVIDED" AS ?violationType)
+    ("Article 4(1) VIOLATED: Data holder failed to provide data to user" AS ?details)
+WHERE {
+  ?b2cSharing a dataact:B2CDataSharing ;
+              dataact:governedBy ?contract .
+  ?contract dpv:hasRecipient ?user .
+  ?user a dataact:ConsumerUser ;
+        dataact:ownsOrUses ?product ;
+        dataact:requestsAccessTo ?data .
+  ?product a dataact:ConnectedProduct .
+  ?data dataact:isGeneratedBy ?product .
+  ?holder a dataact:DataHolder ;
+          dpv:hasData ?data .
+  
+  FILTER NOT EXISTS {
+    ?holder dataact:performsLegalAction ?provision .
+    ?provision a dataact:DataProvision .
+  }
+}
+ORDER BY ?user

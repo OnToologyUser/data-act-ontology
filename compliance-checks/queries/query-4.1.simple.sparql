@@ -1,0 +1,25 @@
+PREFIX dataact: <http://www.semanticweb.org/dataact#>
+PREFIX dpv: <https://w3c.github.io/dpv/2.2/dpv/#>
+
+SELECT DISTINCT ?user ?data ?holder ?violation
+WHERE {
+  # User requests data
+  ?user a dataact:ConsumerUser ;
+        dataact:requestsAccessTo ?data ;
+        dataact:ownsOrUses ?product .
+  
+  # Data is from user's product
+  ?data dataact:isGeneratedBy ?product .
+  
+  # Holder has the data
+  ?holder a dataact:DataHolder ;
+          dpv:hasData ?data .
+  
+  # VIOLATION: Holder didn't provide data
+  FILTER NOT EXISTS {
+    ?holder dataact:performsLegalAction ?action .
+    ?action a dataact:DataProvision .
+  }
+  
+  BIND("Article 4(1) VIOLATED: Data not provided to user" AS ?violation)
+}
