@@ -27,3 +27,9 @@ WHERE {
   }
 }
 ORDER BY ?user
+
+
+#### OUTPUTS:
+
+#b2cSharing || user || holder || product || data || violationType || details
+#http://www.semanticweb.org/dataact#b2cSharing_charlie || http://www.semanticweb.org/dataact#charlie ||	http://www.semanticweb.org/dataact#watchManufacturer ||	http://www.semanticweb.org/dataact#smartWatch1	|| http://www.semanticweb.org/dataact#charlieHealthData	|| "DATA_NOT_PROVIDED"	|| "Article 4(1) VIOLATED: Data holder failed to provide data to user"
