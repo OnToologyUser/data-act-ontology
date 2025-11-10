@@ -240,7 +240,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#createsRight">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
         <rdfs:range rdf:resource="http://www.estrellaproject.org/lkif-core/norm.owl#Right"/>
-        <rdfs:comment>LKIF: Action creates a right</rdfs:comment>
         <rdfs:label>creates right</rdfs:label>
     </owl:ObjectProperty>
     
@@ -380,7 +379,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#hasCounterparty">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#LegalRelationship"/>
         <rdfs:range rdf:resource="https://www.w3.org/ns/odrl/2/Party"/>
-        <rdfs:comment>LKIF: Other party in bilateral relationship</rdfs:comment>
         <rdfs:label>has counterparty</rdfs:label>
     </owl:ObjectProperty>
     
@@ -444,7 +442,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#hasParticipant">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
         <rdfs:range rdf:resource="https://www.w3.org/ns/odrl/2/Party"/>
-        <rdfs:comment>LKIF: Actor involved in action</rdfs:comment>
         <rdfs:label>has participant</rdfs:label>
     </owl:ObjectProperty>
     
@@ -465,7 +462,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#hasRightHolder">
         <rdfs:domain rdf:resource="http://www.estrellaproject.org/lkif-core/norm.owl#Right"/>
         <rdfs:range rdf:resource="https://www.w3.org/ns/odrl/2/Party"/>
-        <rdfs:comment>LKIF: Actor who holds the right</rdfs:comment>
         <rdfs:label>has right holder</rdfs:label>
     </owl:ObjectProperty>
     
@@ -529,7 +525,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#modifies">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/dataact#LegalRelationship"/>
-        <rdfs:comment>LKIF: Action modifies existing relationship</rdfs:comment>
         <rdfs:label>modifies</rdfs:label>
     </owl:ObjectProperty>
     
@@ -540,7 +535,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#occursAt">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/dataact#TemporalEntity"/>
-        <rdfs:comment>LKIF: Time when action occurs</rdfs:comment>
         <rdfs:label>occurs at</rdfs:label>
     </owl:ObjectProperty>
     
@@ -583,7 +577,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#performsLegalAction">
         <rdfs:domain rdf:resource="https://www.w3.org/ns/odrl/2/Party"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
-        <rdfs:comment>LKIF: Actor performs a legal action</rdfs:comment>
         <rdfs:label>performs legal action</rdfs:label>
     </owl:ObjectProperty>
     
@@ -723,7 +716,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#terminatedBy">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#LegalRelationship"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
-        <rdfs:comment>LKIF: Action that terminates relationship</rdfs:comment>
         <rdfs:label>terminated by</rdfs:label>
     </owl:ObjectProperty>
     
@@ -756,7 +748,6 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/dataact#validDuring">
         <rdfs:domain rdf:resource="https://www.w3.org/ns/odrl/2/Agreement"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/dataact#TemporalEntity"/>
-        <rdfs:comment>LKIF: Temporal validity period</rdfs:comment>
         <rdfs:label>valid during</rdfs:label>
     </owl:ObjectProperty>
     
@@ -868,7 +859,6 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dataact#actionType">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>LKIF: Type of legal action</rdfs:comment>
         <rdfs:label>action type</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -952,7 +942,6 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dataact#duration">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#TemporalEntity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#duration"/>
-        <rdfs:comment>LKIF: Duration of temporal entity</rdfs:comment>
         <rdfs:label>duration</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -963,7 +952,6 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dataact#endTime">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#TemporalEntity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <rdfs:comment>LKIF: End of temporal period</rdfs:comment>
         <rdfs:label>end time</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -996,7 +984,6 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dataact#hasJurisdiction">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#LegalSource"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>LKIF: Jurisdiction of legal source</rdfs:comment>
         <rdfs:label>has jurisdiction</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1114,7 +1101,6 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/dataact#startTime">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/dataact#TemporalEntity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <rdfs:comment>LKIF: Start of temporal period</rdfs:comment>
         <rdfs:label>start time</rdfs:label>
     </owl:DatatypeProperty>
     
@@ -1272,7 +1258,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#ContractFormation">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
-        <rdfs:comment>LKIF: Action of forming agreement</rdfs:comment>
         <rdfs:label>Contract Formation</rdfs:label>
     </owl:Class>
     
@@ -1282,7 +1267,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#ContractualRelationship">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#LegalRelationship"/>
-        <rdfs:comment>LKIF: Relationship governed by contract</rdfs:comment>
         <rdfs:label>Contractual Relationship</rdfs:label>
     </owl:Class>
     
@@ -1490,7 +1474,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#DataSharingRelationship">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#LegalRelationship"/>
-        <rdfs:comment>LKIF: Relationship for data sharing</rdfs:comment>
         <rdfs:label>Data Sharing Relationship</rdfs:label>
     </owl:Class>
     
@@ -1622,7 +1605,6 @@
     <!-- http://www.semanticweb.org/dataact#LegalRelationship -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#LegalRelationship">
-        <rdfs:comment>LKIF: Relationship between legal parties</rdfs:comment>
         <rdfs:label>Legal Relationship</rdfs:label>
     </owl:Class>
     
@@ -1742,7 +1724,6 @@
     <!-- http://www.semanticweb.org/dataact#Qualification -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#Qualification">
-        <rdfs:comment>LKIF: Condition or exception qualifying norm</rdfs:comment>
         <rdfs:label>Qualification</rdfs:label>
     </owl:Class>
     
@@ -1752,7 +1733,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#RegulationDocument">
         <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/expression.owl#Legal_Document"/>
-        <rdfs:comment>LKIF: EU Regulation or legislative act</rdfs:comment>
         <rdfs:label>Regulation Document</rdfs:label>
     </owl:Class>
     
@@ -1853,7 +1833,6 @@
     <!-- http://www.semanticweb.org/dataact#TemporalEntity -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#TemporalEntity">
-        <rdfs:comment>LKIF: Time point or interval</rdfs:comment>
         <rdfs:label>Temporal Entity</rdfs:label>
     </owl:Class>
     
@@ -1878,7 +1857,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#TimeInterval">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#TemporalEntity"/>
-        <rdfs:comment>LKIF: Period with start and end</rdfs:comment>
         <rdfs:label>Time Interval</rdfs:label>
     </owl:Class>
     
@@ -1888,7 +1866,6 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#TimePoint">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#TemporalEntity"/>
-        <rdfs:comment>LKIF: Instant in time</rdfs:comment>
         <rdfs:label>Time Point</rdfs:label>
     </owl:Class>
     
@@ -2103,8 +2080,6 @@
         <rdfs:comment>A defined purpose for exercising the action of the Rule.</rdfs:comment>
         <rdfs:label>Purpose</rdfs:label>
     </owl:Class>
-    
-
 </rdf:RDF>
 
 
