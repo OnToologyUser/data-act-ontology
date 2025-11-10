@@ -94,6 +94,20 @@
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
     
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
 
 
     <!-- 
@@ -1134,9 +1148,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#ThirdParty"/>
         <rdfs:comment>Service provider competing with or complementing data holder</rdfs:comment>
         <rdfs:label>Aftermarket Service Provider</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Aftermarket Service Provider</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Proveedor de Servicios Posventa</skos:prefLabel>
+        <skos:definition xml:lang="en">Service provider that competes with or complements the data holder's services. Can be designated by user as third party (Article 5) or request data under B2B provisions (Article 8). Key beneficiary of Data Act's market opening objectives.</skos:definition>
+        <skos:scopeNote xml:lang="en">MARKET COMPETITION FOCUS: Data Act aims to enable aftermarket competition. Can access data via (1) user designation as ThirdParty, or (2) B2B request as DataRecipient with user authorization. Non-discrimination required per Article 8(3). Examples include repair services, analytics providers.</skos:scopeNote>
+        <skos:example xml:lang="en">energyOptimizationService (third party receiving thermostat data), autoRepair (B2B recipient requesting RobotData), mantenimientoTech, techFix (aftermarket repair services).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#B2BDataSharing -->
 
@@ -1144,9 +1162,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#DataSharing"/>
         <rdfs:comment>Chapter III (Article 8) - Business-to-business data sharing, must be authorized by user per Article 8(4)</rdfs:comment>
         <rdfs:label>B2B Data Sharing</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Business-to-Business Data Sharing</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Compartición de Datos B2B</skos:prefLabel>
+        <skos:definition xml:lang="en">Data sharing between businesses where a data recipient requests access from a data holder. MANDATORY REQUIREMENTS: (1) User authorization (Article 8(4)), (2) FRAND terms (Article 8(1)), (3) Non-discrimination (Article 8(3)). Data holder may refuse ONLY if data contains trade secrets (Article 8(6)).</skos:definition>
+        <skos:scopeNote xml:lang="en">Governed by Chapter III, Article 8. COMPLIANCE REQUIREMENT: Data holder can refuse ONLY with trade secret justification (Article 8(6)). Unjustified refusal is a violation detectable via SPARQL query checking for missing DataProvision without TradeSecretData. Related to DataRecipient, DataHolder, FRAND, authorizedBy property.</skos:scopeNote>
+        <skos:example xml:lang="en">Aftermarket repair service (autoRepair) requests robot diagnostic data from RobotManufacturer with user authorization. Violation example: RobotManufacturer refuses without trade secret justification (Article 8(6) violation).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#B2CDataSharing -->
 
@@ -1154,8 +1176,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#DataSharing"/>
         <rdfs:comment>Chapter II (Articles 3-7) - Business-to-Consumer data sharing, data holder makes data available to user</rdfs:comment>
         <rdfs:label>B2C Data Sharing</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Business-to-Consumer Data Sharing</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Compartición de Datos B2C</skos:prefLabel>
+        <skos:definition xml:lang="en">Data sharing from data holder to user (consumer or enterprise) who owns, rents, or leases the connected product that generated the data. Data holders must make data available without undue delay, free of charge, and in machine-readable format (Article 4).</skos:definition>
+        <skos:scopeNote xml:lang="en">Governed by Chapter II, Article 4. COMPLIANCE REQUIREMENT: Data holder MUST provide data when user requests it. Failure to provide data violates Article 4(1) and is detectable via SPARQL query checking for missing DataProvision actions. Related to ConsumerUser, DataHolder, ConnectedProduct.</skos:scopeNote>
+        <skos:example xml:lang="en">Consumer (Charlie) requests health data from smart watch manufacturer - manufacturer must provide the data. Factory owner requests sensor data from IoT device manufacturer. Violation example: watchManufacturer fails to provide charlieHealthData despite user request.</skos:example>
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/dataact#B2GDataSharing -->
@@ -1164,9 +1191,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#DataSharing"/>
         <rdfs:comment>Chapter V (Articles 14-22) - Business to Government data sharing for exceptional need</rdfs:comment>
         <rdfs:label>B2G Data Sharing</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Business-to-Government Data Sharing</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Compartición de Datos B2G</skos:prefLabel>
+        <skos:definition xml:lang="en">Data sharing from data holder to public sector body based on exceptional need (Article 15) such as public emergency, official statistics, or regulatory function. CRITICAL RESTRICTION: Article 19(2)(a) PROHIBITS using received data to develop products or services competing with private sector.</skos:definition>
+        <skos:scopeNote xml:lang="en">Governed by Chapter V, Articles 14-22. COMPLIANCE REQUIREMENT: Public body MUST NOT use data for competitive product development (Article 19(2)(a)). Violation is detectable via SPARQL query checking if PublicSectorBody performs UseDataToDevelopCompetingProduct action. Related to PublicSectorBody, ExceptionalNeed, Article19_2_a_prohibition.</skos:scopeNote>
+        <skos:example xml:lang="en">HealthAuthority requests health data for public emergency response - ALLOWED. HealthAuthority uses same data to develop competing health app - PROHIBITED (Article 19(2)(a) violation). Statistical office requests industrial data for GDP calculation - ALLOWED.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#BusinessDataRecipient -->
 
@@ -1184,8 +1215,13 @@
         <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/odrl/2/Asset"/>
         <rdfs:comment>Article 2(5) - Product generating data</rdfs:comment>
         <rdfs:label>Connected Product</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Connected Product</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Producto Conectado</skos:prefLabel>
+        <skos:definition xml:lang="en">Physical product that obtains, generates, or collects data concerning its use or environment and communicates this data via electronic means. The data generated by the product is subject to user access rights under Article 4 when user owns, rents, or leases the product.</skos:definition>
+        <skos:scopeNote xml:lang="en">Defined in Article 2(5). COMPLIANCE TRIGGER: When ConnectedProduct generates data (via generatesData property), the user who owns/uses it (via ownsOrUses) gains Article 4 access rights. Data holder MUST provide this data when requested. Related to ProductData, isGeneratedBy, ownsOrUses properties.</skos:scopeNote>
+        <skos:example xml:lang="en">smartThermostat1 generates aliceTemperatureData - Alice has access right. smartWatch1 generates charlieHealthData - Charlie requests but watchManufacturer fails to provide (Article 4(1) violation). industrialRobot1 generates RobotData - factoryOwner has access right.</skos:example>
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/dataact#ConstitutiveRule -->
@@ -1204,9 +1240,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#User"/>
         <rdfs:comment>Natural person acting for non-professional purposes - protected by Article 13</rdfs:comment>
         <rdfs:label>Consumer User</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Consumer User</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Usuario Consumidor</skos:prefLabel>
+        <skos:definition xml:lang="en">Natural person who owns, rents, or leases a connected product for non-professional, personal purposes. Has UNCONDITIONAL right to access generated data (Article 4) free of charge. Enhanced protection against unfair contractual terms under Article 13.</skos:definition>
+        <skos:scopeNote xml:lang="en">COMPLIANCE SIGNIFICANCE: Consumer users trigger Article 4(1) obligations on data holders. When ConsumerUser requests data via requestsAccessTo property, data holder MUST perform DataProvision. Failure is Article 4(1) violation. Related to ownsOrUses, requestsAccessTo, hasAccessRight properties.</skos:scopeNote>
+        <skos:example xml:lang="en">Alice (consumer) requests temperature data from smart thermostat - right guaranteed. Charlie (consumer) requests health data from smart watch - watchManufacturer MUST provide (failure = violation detected in compliance query). Distinct from EnterpriseUser.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#ContractFormation -->
 
@@ -1233,9 +1273,12 @@
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#ContractualTerm">
         <rdfs:comment>Provision in agreement</rdfs:comment>
         <rdfs:label>Contractual Term</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Contractual Term</skos:prefLabel>
+        <skos:definition xml:lang="en">Individual provision or clause within a data sharing agreement. Subject to FRAND evaluation in B2B context. Can be FRANDTerms (compliant) or UnfairTerm (non-compliant and unenforceable per Article 13).</skos:definition>
+        <skos:scopeNote xml:lang="en">Agreement hasTerm ContractualTerm. Properties: isFair, isReasonable, isNonDiscriminatory (boolean checks for FRAND compliance). Subclasses: FRANDTerms, UnfairTerm. Critical for Article 8-13 compliance.</skos:scopeNote>
+        <skos:example xml:lang="en">Compensation clauses, data format specifications, access frequency limits, confidentiality provisions.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#Data -->
 
@@ -1243,9 +1286,13 @@
         <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/odrl/2/Asset"/>
         <rdfs:comment>Article 2(1) - Any digital representation</rdfs:comment>
         <rdfs:label>Data</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Datos</skos:prefLabel>
+        <skos:definition xml:lang="en">Any digital representation of acts, facts, or information, and any compilation of such acts, facts, or information. Fundamental asset in the Data Act ecosystem subject to access rights, sharing obligations, and FRAND terms depending on context (B2C, B2B, B2G).</skos:definition>
+        <skos:scopeNote xml:lang="en">Defined in Article 2(1). ROOT CONCEPT for compliance: All obligations and rights in the Data Act pertain to Data. Must be machine-readable per Article 3(1) (isMachineReadable property). Specializes into ProductData, RelatedServiceData, PersonalData, NonPersonalData. Related to isGeneratedBy, dpv:hasData properties.</skos:scopeNote>
+        <skos:example xml:lang="en">aliceTemperatureData (personal product data), machineData1 (non-personal product data), charlieHealthData (personal data subject to access rights). legacyData with isMachineReadable=false violates Article 3(1).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#DataAccessRight -->
 
@@ -1253,8 +1300,13 @@
         <rdfs:subClassOf rdf:resource="http://www.estrellaproject.org/lkif-core/norm.owl#Right"/>
         <rdfs:comment>Legal entitlement to access data</rdfs:comment>
         <rdfs:label>Data Access Right</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Access Right</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Derecho de Acceso a Datos</skos:prefLabel>
+        <skos:definition xml:lang="en">Legal entitlement granted to users to access data generated by connected products they own, rent, or lease. Foundation of the Data Act's user empowerment provisions (Chapter II, Articles 3-7). Creates enforceable obligation on data holders.</skos:definition>
+        <skos:scopeNote xml:lang="en">Core right in Data Act. Users have DataAccessRight via hasAccessRight property. When user exercises this right via requestsAccessTo, data holder MUST respond with DataProvision action. Failure = Article 4(1) violation detected in compliance queries. Specializes to UserAccessRight.</skos:scopeNote>
+        <skos:example xml:lang="en">aliceAccessRight (Alice's right to access temperature data from her thermostat under Article 4). When exercised, triggers obligation on thermostatManufacturer to provide data.</skos:example>
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/dataact#DataCategory -->
@@ -1281,9 +1333,13 @@
         <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/odrl/2/Party"/>
         <rdfs:comment>Article 2(13) - Has the right or obligation to control access to data</rdfs:comment>
         <rdfs:label>Data Holder</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Holder</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Titular de Datos</skos:prefLabel>
+        <skos:definition xml:lang="en">A legal or natural person with the right or obligation to control access to data. MANDATORY OBLIGATIONS: (1) Provide data to users upon request (Article 4) via performsLegalAction→DataProvision, (2) Share with data recipients under FRAND terms (Article 8), (3) Justify refusals with trade secrets (Article 8(6)).</skos:definition>
+        <skos:scopeNote xml:lang="en">Defined in Article 2(13). COMPLIANCE ENFORCEMENT: Violations detected when (a) User requests data but holder has no DataProvision action (Article 4 violation), (b) DataRecipient authorized request but holder refuses without trade secret (Article 8(6) violation). Related to dpv:hasData, performsLegalAction, DataProvision.</skos:scopeNote>
+        <skos:example xml:lang="en">watchManufacturer (data holder) MUST provide charlieHealthData when Charlie requests it. RobotManufacturer MUST share RobotData with autoRepair unless trade secret exists. thermostatManufacturer successfully provides aliceTemperatureData (compliant example).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#DataIntermediationService -->
 
@@ -1291,9 +1347,12 @@
         <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/odrl/2/Party"/>
         <rdfs:comment>Recitals 29-33 - Acts on behalf of user</rdfs:comment>
         <rdfs:label>Data Intermediation Service</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Intermediation Service</skos:prefLabel>
+        <skos:definition xml:lang="en">Service that facilitates data sharing by acting on behalf of users. Can exercise user rights under appropriate authorization. Regulated under Data Governance Act and referenced in Data Act Recitals 29-33.</skos:definition>
+        <skos:scopeNote xml:lang="en">Recitals 29-33. actsOnBehalfOf User. Can exercise DataAccessRight and designate ThirdParty on user's behalf. Subject to Data Governance Act trustworthiness requirements. Enables scalable user empowerment.</skos:scopeNote>
+        <skos:example xml:lang="en">Personal data space providers, data trusts, data cooperatives acting for user collectives.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#DataLicenseAgreement -->
 
@@ -1311,18 +1370,26 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#ServiceProvider"/>
         <rdfs:comment>Article 2(8), Articles 30-32 - Cloud/edge provider</rdfs:comment>
         <rdfs:label>Data Processing Service</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Processing Service</skos:prefLabel>
+        <skos:definition xml:lang="en">Cloud or edge computing service that processes data. Subject to Chapter VI (Articles 23-32) switching and portability obligations. Must comply with interoperability standards and enable customer switching without vendor lock-in.</skos:definition>
+        <skos:scopeNote xml:lang="en">Articles 2(8), 23-32. compliesWith InteroperabilityStandard. implementedBy SmartContract. Data involvesProcessingService DataProcessingService. Critical for cloud portability and multi-cloud strategies. Prevents vendor lock-in.</skos:scopeNote>
+        <skos:example xml:lang="en">AWS, Azure, Google Cloud processing customer data. Must enable switching per Articles 23-29.</skos:example>
     </owl:Class>
     
-
 
     <!-- http://www.semanticweb.org/dataact#DataProvision -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#DataProvision">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
         <rdfs:label>Data Provision</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Provision</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Provisión de Datos</skos:prefLabel>
+        <skos:definition xml:lang="en">Legal action of making data available to a requesting party (user or data recipient). Acts as COMPLIANCE PROOF that data holder fulfilled their obligation under Article 4 (B2C) or Article 8 (B2B). Linked via performsLegalAction property.</skos:definition>
+        <skos:scopeNote xml:lang="en">CRITICAL FOR COMPLIANCE VERIFICATION: Absence of DataProvision action when data is requested indicates violation. SPARQL queries use "FILTER NOT EXISTS { ?holder dataact:performsLegalAction ?provision . ?provision a dataact:DataProvision }" to detect violations. Must be performed by DataHolder.</skos:scopeNote>
+        <skos:example xml:lang="en">DataProvisionOfThermostatDataToAlice (compliant - thermostatManufacturer performed action). Missing DataProvision for charlieHealthData = Article 4(1) violation. Missing DataProvision for RobotData to autoRepair = Article 8(6) violation if no trade secret.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#DataRecipient -->
 
@@ -1331,9 +1398,13 @@
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/dataact#User"/>
         <rdfs:comment>Article 2(14) - Receives data, OTHER THAN the user</rdfs:comment>
         <rdfs:label>Data Recipient</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Recipient</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Destinatario de Datos</skos:prefLabel>
+        <skos:definition xml:lang="en">A legal or natural person receiving data from a data holder, explicitly EXCLUDING the user. In B2B context (Article 8), can request data with user authorization under FRAND terms. Data holder may refuse ONLY if trade secret exists (Article 8(6)).</skos:definition>
+        <skos:scopeNote xml:lang="en">Defined in Article 2(14). COMPLIANCE ROLE: In B2B sharing, DataRecipient triggers Article 8 obligations. When recipient authorized by user requests data, holder MUST provide UNLESS trade secret justification exists. Unjustified refusal (missing DataProvision + no TradeSecretData) = Article 8(6) violation. Related to requestsAccessFrom, BusinessDataRecipient, AftermarketServiceProvider.</skos:scopeNote>
+        <skos:example xml:lang="en">autoRepair (data recipient) requests RobotData with authorization - RobotManufacturer must provide unless trade secret (violation if refused without justification). energyOptimizationService receives thermostatData (compliant). HealthAuthority receives data in B2G context (different rules).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#DataRequest -->
 
@@ -1341,9 +1412,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#LegalAction"/>
         <rdfs:comment>Article 4, 5, 14 - Formal request</rdfs:comment>
         <rdfs:label>Data Request</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Request</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Solicitud de Datos</skos:prefLabel>
+        <skos:definition xml:lang="en">Formal action of requesting access to data. Can be initiated by users (Article 4), data recipients (Article 8), or public sector bodies (Article 14). Creates obligations on data holder depending on context and legal basis. Subject to deadlines (hasDeadline property).</skos:definition>
+        <skos:scopeNote xml:lang="en">COMPLIANCE TRIGGER ACTION: DataRequest activates obligations. (1) User request via requestsAccessTo → Article 4 obligation, (2) B2B request via requestsAccessFrom → Article 8 obligation if authorized, (3) B2G request via respondsTo ExceptionalNeed → Article 14 obligation. hasDeadline specifies response timeframe.</skos:scopeNote>
+        <skos:example xml:lang="en">Charlie's request for charlieHealthData (Article 4 - user request), autoRepair requesting RobotData (Article 8 - B2B request), HealthAuthority request for emergency data (Article 14 - B2G request with ExceptionalNeed justification).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#DataSharing -->
 
@@ -1366,9 +1441,13 @@
         <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/odrl/2/Agreement"/>
         <rdfs:comment>Contract governing data sharing</rdfs:comment>
         <rdfs:label>Data Sharing Agreement</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Sharing Agreement</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Acuerdo de Compartición de Datos</skos:prefLabel>
+        <skos:definition xml:lang="en">Contract between parties governing data sharing arrangements. In B2B context, MUST comply with FRAND conditions (Article 8-12). In B2C context, governed by Chapter II. Subject to unfair terms provisions (Article 13) protecting weaker parties.</skos:definition>
+        <skos:scopeNote xml:lang="en">COMPLIANCE ANCHOR: DataSharing instances are governedBy DataSharingAgreement. In B2B: agreement is subjectToFRAND (links to FRANDCondition). Violations: unfair terms (Article 13), missing FRAND compliance. Related to compensationAmount, hasTerm, validDuring properties. Used in all three compliance queries.</skos:scopeNote>
+        <skos:example xml:lang="en">contract189 (FRAND-compliant: all properties true), contract247 (FRAND-violated: isFair=false), contract999 (missing authorization), b2bAgreement1, Contract191 (B2G context), contract_charlie (B2C context).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#DataSharingAuthorization -->
 
@@ -1394,9 +1473,12 @@
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#DataSpace">
         <rdfs:comment>Article 33 - Data sharing space</rdfs:comment>
         <rdfs:label>Data Space</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Data Space</skos:prefLabel>
+        <skos:definition xml:lang="en">Federated infrastructure enabling data sharing among multiple parties with common governance. Supported by Article 33 Data Act provisions. Parties participate via participatesIn property. Enables sectoral or cross-sectoral data ecosystems.</skos:definition>
+        <skos:scopeNote xml:lang="en">Article 33. Party participatesIn DataSpace. Aligns with European Data Strategy. Provides common framework for FRAND-based data sharing at scale. Examples: health data spaces, industrial data spaces, mobility data spaces.</skos:scopeNote>
+        <skos:example xml:lang="en">European Health Data Space, Manufacturing-X, Gaia-X data infrastructure, agricultural data space.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#Enterprise -->
 
@@ -1413,16 +1495,26 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#User"/>
         <rdfs:comment>Legal person or natural person acting professionally as a user</rdfs:comment>
         <rdfs:label>Enterprise User</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Enterprise User</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Usuario Empresarial</skos:prefLabel>
+        <skos:definition xml:lang="en">Legal person or natural person acting in a professional/commercial capacity who owns, rents, or leases connected products. Has same Article 4 access rights as consumers but fewer Article 13 protections against unfair terms. Typically B2B context.</skos:definition>
+        <skos:scopeNote xml:lang="en">Professional user category. SAME ACCESS RIGHTS as ConsumerUser (Article 4) but DIFFERENT PROTECTIONS: Article 13 unfair terms provisions primarily protect consumers. Can authorize B2B data sharing (Article 8(4)). Related to SME, LargeEnterprise classifications via hasPartyType.</skos:scopeNote>
+        <skos:example xml:lang="en">factoryOwnerAcme (owns industrialRobot1), factoryOwnerBeta (owns industrialRobot2), factoryOwnerGamma, bob (SME user). Contrast with alice, charlie (ConsumerUser).</skos:example>
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/dataact#ExceptionalNeed -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#ExceptionalNeed">
         <rdfs:label>Exceptional Need</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Exceptional Need</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Necesidad Excepcional</skos:prefLabel>
+        <skos:definition xml:lang="en">Justification basis for public sector data requests under Article 15. Includes public emergencies, official statistics, regulatory functions, or other compelling public interest. Required for B2G data sharing under Chapter V (Articles 14-22).</skos:definition>
+        <skos:scopeNote xml:lang="en">Article 15 B2G REQUIREMENT: PublicSectorBody MUST demonstrate ExceptionalNeed to request data. DataRequest respondsTo ExceptionalNeed. PublicSectorBody hasExceptionalNeedFor specific Data. Without valid exceptional need, B2G request is unlawful. Examples enumerated in Article 15.</skos:scopeNote>
+        <skos:example xml:lang="en">PublicHealthEmergency (Article 15 - justifies HealthAuthority requesting health data for emergency response). Statistical data collection for GDP calculation. Regulatory oversight of critical infrastructure. Natural disaster response.</skos:example>
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/dataact#FRANDCondition -->
@@ -1430,9 +1522,13 @@
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#FRANDCondition">
         <rdfs:comment>Article 8-12 - FRAND conditions</rdfs:comment>
         <rdfs:label>FRAND Condition</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">FRAND Condition</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Condición FRAND</skos:prefLabel>
+        <skos:definition xml:lang="en">Fair, Reasonable, And Non-Discriminatory conditions mandatory for B2B data sharing agreements (Article 8(1)). Ensures data recipients can access data under balanced terms. COMPLIANCE METRICS: isFair, isReasonable, isNonDiscriminatory properties must all be true. Violations render contractual terms unenforceable (Article 13).</skos:definition>
+        <skos:scopeNote xml:lang="en">Core B2B compliance concept. Related to DataSharingAgreement via subjectToFRAND property. While not directly checked in unjustified refusal query, FRAND context matters: holder cannot impose unfair terms as reason to refuse (must only refuse for trade secrets per Article 8(6)). Related to isFair, isReasonable, isNonDiscriminatory datatype properties.</skos:scopeNote>
+        <skos:example xml:lang="en">frand189 (all properties true) = compliant B2B agreement. frand247 (isFair=false, isNonDiscriminatory=false) = Article 8(1) violation, terms unenforceable. compensationAmount must be reasonable. Non-discrimination: comparable recipients get comparable terms (Article 8(3)).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#FRANDTerms -->
 
@@ -1440,18 +1536,24 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#ContractualTerm"/>
         <rdfs:comment>FRAND contractual terms</rdfs:comment>
         <rdfs:label>FRAND Terms</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">FRAND Terms</skos:prefLabel>
+        <skos:definition xml:lang="en">Contractual terms that meet Fair, Reasonable, And Non-Discriminatory criteria. Required in B2B data sharing agreements (Article 8). Enforceable terms that balance interests of data holder and data recipient.</skos:definition>
+        <skos:scopeNote xml:lang="en">Compliant ContractualTerm. Must satisfy: isFair=true, isReasonable=true, isNonDiscriminatory=true. Linked to FRANDCondition via DataSharingAgreement. Essential for B2B compliance under Articles 8-12.</skos:scopeNote>
+        <skos:example xml:lang="en">Reasonable compensation reflecting costs, non-discriminatory treatment of similar recipients, fair contract duration enabling market entry.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#InteroperabilityStandard -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#InteroperabilityStandard">
         <rdfs:comment>Article 34-35 - Standard</rdfs:comment>
         <rdfs:label>Interoperability Standard</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Interoperability Standard</skos:prefLabel>
+        <skos:definition xml:lang="en">Technical standard ensuring data portability and service interoperability. Required for data processing services under Articles 34-35. Enables data sharing across platforms and prevents technical lock-in.</skos:definition>
+        <skos:scopeNote xml:lang="en">Articles 34-35. DataProcessingService compliesWith InteroperabilityStandard. Essential for Chapter VI (cloud switching) and Chapter VII (smart contracts) implementation. European Commission may mandate specific standards.</skos:scopeNote>
+        <skos:example xml:lang="en">Data format standards, API specifications, protocol standards for data exchange.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#LargeEnterprise -->
 
@@ -1462,15 +1564,17 @@
     </owl:Class>
     
 
-
     <!-- http://www.semanticweb.org/dataact#LegalAction -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#LegalAction">
         <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/odrl/2/Action"/>
         <rdfs:label>Legal Action</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Legal Action</skos:prefLabel>
+        <skos:definition xml:lang="en">Action with legal significance in data sharing context. Includes DataProvision, DataRequest, DataSharing, ContractFormation. Party performsLegalAction LegalAction. Creates, modifies, or terminates legal relationships and obligations.</skos:definition>
+        <skos:scopeNote xml:lang="en">Abstract superclass for legally relevant actions. Subclasses: DataProvision (compliance proof), DataRequest (obligation trigger), DataSharing (B2C/B2B/B2G), DataSharingAuthorization (Article 8(4)). Related properties: performsLegalAction, hasParticipant, occursAt, actionType.</skos:scopeNote>
+        <skos:example xml:lang="en">DataProvisionOfThermostatDataToAlice (provision action), charlie requesting data (request action), agreement189 (B2B sharing action).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#LegalEffect -->
 
@@ -1487,7 +1591,6 @@
         <rdfs:comment>LKIF: Relationship between legal parties</rdfs:comment>
         <rdfs:label>Legal Relationship</rdfs:label>
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/dataact#LegalRule -->
@@ -1495,9 +1598,13 @@
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#LegalRule">
         <rdfs:comment>Formal representation of a legal rule from the Data Act</rdfs:comment>
         <rdfs:label>Legal Rule</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Legal Rule</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Regla Legal</skos:prefLabel>
+        <skos:definition xml:lang="en">Formal logical representation of a legal rule from the Data Act, structured as IF (antecedent) THEN (consequent) with possible exceptions. Encodes obligations, permissions, and prohibitions from the regulation for automated compliance checking.</skos:definition>
+        <skos:scopeNote xml:lang="en">FORMALIZATION PATTERN: hasAntecedent (conditions triggering rule) → hasConsequent (legal effect when triggered). May have hasException (conditions preventing rule application). hasDeonticSpecification links to Duty/Permission/Prohibition. derivesFrom links to LegalSource (articles). Properties: ruleIdentifier, ruleText.</skos:scopeNote>
+        <skos:example xml:lang="en">article4_1_rule (IF user requests data THEN holder must provide), article8_6_rule (permission to refuse IF trade secret), Article19_2_a_rule (prohibition on competitive product development by public bodies).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#LegalSource -->
 
@@ -1507,7 +1614,6 @@
     </owl:Class>
     
 
-
     <!-- http://www.semanticweb.org/dataact#Manufacturer -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#Manufacturer">
@@ -1515,9 +1621,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#ServiceProvider"/>
         <rdfs:comment>Article 3 - Manufacturer of connected products</rdfs:comment>
         <rdfs:label>Manufacturer</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Manufacturer</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Fabricante</skos:prefLabel>
+        <skos:definition xml:lang="en">Legal or natural person who manufactures connected products. Typically the initial data holder for product data. Subject to Chapter II obligations (provide data to users) and Chapter III obligations (share with data recipients under FRAND terms).</skos:definition>
+        <skos:scopeNote xml:lang="en">Article 3 definition. DUAL ROLE: (1) As DataHolder - must provide data to users (Article 4), (2) As ServiceProvider - may provide related services. Common violator in compliance scenarios. Related to manufacturerIdentifier property on ConnectedProduct. Subclass of both DataHolder and ServiceProvider.</skos:scopeNote>
+        <skos:example xml:lang="en">thermostatManufacturer (compliant - performs DataProvision), watchManufacturer (non-compliant - fails to provide charlieHealthData), RobotManufacturer (holds RobotData1), sensorManufacturer (manufactures industrialSensor1).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#Metadata -->
 
@@ -1567,8 +1677,13 @@
         <owl:disjointWith rdf:resource="http://www.semanticweb.org/dataact#RelatedServiceData"/>
         <rdfs:comment>Article 2(15) - Generated by product use</rdfs:comment>
         <rdfs:label>Product Data</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Product Data</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Datos de Producto</skos:prefLabel>
+        <skos:definition xml:lang="en">Data generated by the use of a connected product. This data triggers user access rights under Article 4 when the user owns, rents, or leases the product. Distinct from related service data per Article 2(15) vs 2(16).</skos:definition>
+        <skos:scopeNote xml:lang="en">Defined in Article 2(15). COMPLIANCE TRIGGER: ProductData generated by ConnectedProduct creates Article 4 obligation on data holder to provide to user. Used in compliance Query 1 (B2C violations) via isGeneratedBy property. Disjoint with RelatedServiceData.</skos:scopeNote>
+        <skos:example xml:lang="en">aliceTemperatureData (from smartThermostat1), charlieHealthData (from smartWatch1 - access denied = violation), RobotData1 (from industrialRobot1), machineData1 (from industrialSensor1).</skos:example>
     </owl:Class>
-    
 
 
     <!-- http://www.semanticweb.org/dataact#PublicSectorBody -->
@@ -1577,9 +1692,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#PartyType"/>
         <rdfs:comment>Article 2(28) - National/regional/local authority</rdfs:comment>
         <rdfs:label>Public Sector Body</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Public Sector Body</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Organismo del Sector Público</skos:prefLabel>
+        <skos:definition xml:lang="en">State, regional, or local authority, body governed by public law, or public undertaking that can request data under exceptional need (Article 15). CRITICAL PROHIBITION: Article 19(2)(a) FORBIDS using received data to develop products/services competing with private sector.</skos:definition>
+        <skos:scopeNote xml:lang="en">Defined in Article 2(28). COMPLIANCE ENFORCEMENT: Must demonstrate exceptional need (Article 15). PROHIBITED from performing UseDataToDevelopCompetingProduct action - violation detectable via SPARQL query. Related to B2GDataSharing, ExceptionalNeed, hasExceptionalNeedFor, Article19_2_a_prohibition. Can be both PublicSectorBody and DataRecipient.</skos:scopeNote>
+        <skos:example xml:lang="en">HealthAuthority requests health data for emergency response (ALLOWED) but uses it to develop competing health app (PROHIBITED - Article 19(2)(a) violation detected in compliance query). Statistical office requests industrial data for GDP (ALLOWED). UnionBody (EU-level) follows same rules.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#Qualification -->
 
@@ -1606,9 +1725,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#LegalRule"/>
         <rdfs:comment>Rule that prescribes behavior (obligations, permissions, prohibitions)</rdfs:comment>
         <rdfs:label>Regulative Rule</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Regulative Rule</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Regla Regulativa</skos:prefLabel>
+        <skos:definition xml:lang="en">Legal rule that prescribes, permits, or prohibits specific behaviors. Encodes normative content of Data Act provisions. Distinguished from ConstitutiveRule (which defines concepts). Operationalizes compliance obligations through prescribes (Duty), permits (Permission), prohibits (Prohibition).</skos:definition>
+        <skos:scopeNote xml:lang="en">BEHAVIORAL NORMS: RegulativeRules create enforceable obligations. isConstitutive=false distinguishes from ConstitutiveRule. Links to deontic specifications: prescribes Duty (Article 4 obligation), permits Permission (Article 8(6) refusal right), prohibits Prohibition (Article 19(2)(a) competitive use ban).</skos:scopeNote>
+        <skos:example xml:lang="en">article4_1_rule (prescribes article4_1_obligation - holder must provide data to user), article8_6_rule (permits article8_6_permission - holder may refuse if trade secret), Article19_2_a_rule (prohibits article19_2_a_prohibition - public body cannot develop competing product).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#RelatedService -->
 
@@ -1626,9 +1749,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#Data"/>
         <rdfs:comment>Article 2(16) - From related service</rdfs:comment>
         <rdfs:label>Related Service Data</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Related Service Data</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Datos de Servicio Relacionado</skos:prefLabel>
+        <skos:definition xml:lang="en">Data generated by a digital service connected to or supporting a connected product (Article 2(16)). Distinct from ProductData but subject to similar access obligations. Covers cloud services, companion apps, and platform services related to product functionality.</skos:definition>
+        <skos:scopeNote xml:lang="en">Article 2(16) definition. Disjoint with ProductData per owl:disjointWith. Generated by RelatedService (Article 2(6)) provided via providesRelatedService property. User access rights under Chapter II may extend to RelatedServiceData when essential for product use. Managed by RelatedServiceProvider.</skos:scopeNote>
+        <skos:example xml:lang="en">Cloud-stored configuration data for smart home device, fitness tracking platform data linked to wearable, vehicle telematics processed by manufacturer's cloud service, companion app usage analytics.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#RelatedServiceProvider -->
 
@@ -1674,9 +1801,12 @@
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#SmartContract">
         <rdfs:comment>Article 36 - Automated execution</rdfs:comment>
         <rdfs:label>Smart Contract</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Smart Contract</skos:prefLabel>
+        <skos:definition xml:lang="en">Computer program that automatically executes data sharing agreements or processes. Subject to Article 36 requirements including access termination mechanisms and compliance safeguards. Must be implementedBy compliant DataProcessingService.</skos:definition>
+        <skos:scopeNote xml:lang="en">Article 36. implementedBy DataProcessingService. Must include safe termination, access control, and compliance verification mechanisms. Automates data sharing under DataSharingAgreement. Subject to unilateral termination rights.</skos:scopeNote>
+        <skos:example xml:lang="en">Automated data access control system, blockchain-based data sharing agreement, DLT-based consent management.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#TemporalEntity -->
 
@@ -1693,9 +1823,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#DataRecipient"/>
         <rdfs:comment>Article 5 - Third party designated by user</rdfs:comment>
         <rdfs:label>Third Party</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Third Party</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Tercero</skos:prefLabel>
+        <skos:definition xml:lang="en">A data recipient explicitly designated by the user to receive data directly from the data holder (Article 5). Enables users to share their product data with trusted service providers without intermediary steps. Data holder must honor designation.</skos:definition>
+        <skos:scopeNote xml:lang="en">Article 5 right. USER EMPOWERMENT: Users can designate third parties via designatesThirdParty property. Data holder must provide data directly to designated third party. Related to AftermarketServiceProvider. Subclass of DataRecipient but initiated by user choice, not B2B request.</skos:scopeNote>
+        <skos:example xml:lang="en">energyOptimizationService (third party designated by Alice to receive aliceTemperatureData). User-driven data sharing distinct from B2B requests under Article 8.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#TimeInterval -->
 
@@ -1723,9 +1857,13 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#ContractualTerm"/>
         <rdfs:comment>Article 13 - Unfair and not binding</rdfs:comment>
         <rdfs:label>Unfair Term</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Unfair Term</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Cláusula Abusiva</skos:prefLabel>
+        <skos:definition xml:lang="en">Contractual term that fails FRAND requirements or imposes unjustified burdens on weaker parties, particularly consumers and SMEs. Not binding under Article 13. Includes terms with isFair=false, isReasonable=false, or isNonDiscriminatory=false.</skos:definition>
+        <skos:scopeNote xml:lang="en">Article 13 protection mechanism. LEGAL EFFECT: Unfair terms are UNENFORCEABLE. Applies primarily to B2B agreements (must be FRAND-compliant) and B2C agreements (consumer protection). Related to FRANDCondition - when isFair, isReasonable, or isNonDiscriminatory is false, term becomes unfair. Court-enforceable nullity.</skos:scopeNote>
+        <skos:example xml:lang="en">Terms in contract247 where isFair=false and isNonDiscriminatory=false constitute UnfairTerms. Excessive compensationAmount, discriminatory pricing, unreasonable contract duration are typical unfair terms.</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#UnionBody -->
 
@@ -1752,18 +1890,27 @@
         <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/odrl/2/Party"/>
         <rdfs:comment>Article 2(12) - Natural or legal person who owns, rents, or leases a connected product</rdfs:comment>
         <rdfs:label>User</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">User</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Usuario</skos:prefLabel>
+        <skos:definition xml:lang="en">Natural or legal person who owns, rents, or leases a connected product that generates data. Has FUNDAMENTAL RIGHTS: (1) Access data from their product (Article 4), (2) Designate third parties to receive data (Article 5), (3) Authorize B2B data sharing (Article 8(4)). Distinct from DataRecipient per Article 2(14).</skos:definition>
+        <skos:scopeNote xml:lang="en">Defined in Article 2(12). COMPLIANCE ROLES: (a) In B2C: requestsAccessTo triggers Article 4 obligation on holder, (b) In B2B: authorizedBy property makes B2B sharing lawful per Article 8(4). Related to ConsumerUser, EnterpriseUser, ownsOrUses, requestsAccessTo, hasAccessRight, designatesThirdParty properties.</skos:scopeNote>
+        <skos:example xml:lang="en">Alice (consumer) owns smartThermostat1, requests aliceTemperatureData - holder must provide. factoryOwnerAcme authorizes B2B sharing in agreement247. Charlie requests charlieHealthData but watchManufacturer fails to provide (violation). User ≠ DataRecipient (disjoint classes).</skos:example>
     </owl:Class>
-    
-
 
     <!-- http://www.semanticweb.org/dataact#UserAccessRight -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/dataact#UserAccessRight">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/dataact#DataAccessRight"/>
-        <rdfs:comment>Article 4 - User&apos;s right</rdfs:comment>
+        <rdfs:comment>Article 4 - User's right</rdfs:comment>
         <rdfs:label>User Access Right</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">User Access Right</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Derecho de Acceso del Usuario</skos:prefLabel>
+        <skos:definition xml:lang="en">Specific instantiation of DataAccessRight for users under Article 4. Unconditional right to access product data without undue delay, free of charge, in machine-readable format. Central to B2C data sharing compliance.</skos:definition>
+        <skos:scopeNote xml:lang="en">Article 4 right. COMPLIANCE CRITICAL: This right creates non-waivable obligation on data holders. Violation when user has UserAccessRight and requests data (requestsAccessTo) but holder fails to perform DataProvision. applicableArticle property links to 'Article 4'.</skos:scopeNote>
+        <skos:example xml:lang="en">aliceAccessRight (applicableArticle='Article 4') gives Alice unconditional right to aliceTemperatureData. watchManufacturer's failure to honor Charlie's right = Article 4(1) violation.</skos:example>
     </owl:Class>
-    
 
 
     <!-- https://w3c.github.io/dpv/2.2/dpv/#Consent -->
@@ -1986,12 +2133,16 @@
 
     <!-- http://www.semanticweb.org/dataact#UsesDataToDevelopCompetingProduct1 -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dataact#UsesDataToDevelopCompetingProduct1">
-        <rdf:type rdf:resource="http://www.semanticweb.org/dataact#UseDataToDevelopCompetingProduct"/>
-        <rdfs:label>Uses Data To Develop Competing Product 1</rdfs:label>
-    </owl:NamedIndividual>
-    
-
+    <owl:Class rdf:about="http://www.semanticweb.org/dataact#UseDataToDevelopCompetingProduct">
+        <rdfs:subClassOf rdf:resource="https://www.w3.org/ns/odrl/2/Action"/>
+        <rdfs:label>Use Data To Develop Competing Product</rdfs:label>
+        
+        <skos:prefLabel xml:lang="en">Use Data To Develop Competing Product</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Usar Datos para Desarrollar Producto Competidor</skos:prefLabel>
+        <skos:definition xml:lang="en">PROHIBITED ACTION under Article 19(2)(a): Using data obtained through B2G data sharing (Chapter V) to develop or improve products or services that compete with private sector offerings. Applies ONLY to public sector bodies receiving data under exceptional need.</skos:definition>
+        <skos:scopeNote xml:lang="en">CRITICAL PROHIBITION: Article 19(2)(a) explicitly forbids this action by PublicSectorBody. COMPLIANCE DETECTION: SPARQL query checks if PublicSectorBody performs this action - existence indicates violation. Related to B2GDataSharing, Article19_2_a_prohibition, PublicSectorBody via performsAction property.</skos:scopeNote>
+        <skos:example xml:lang="en">HealthAuthority receives patient data for emergency monitoring - using it to develop competing health tracking app = VIOLATION (UsesDataToDevelopCompetingProduct1 instance violates Article 19(2)(a)). Public transport authority using traffic data for route optimization = ALLOWED (not competing with private sector).</skos:example>
+    </owl:Class>
 
     <!-- http://www.semanticweb.org/dataact#agreement189 -->
 
@@ -2423,7 +2574,6 @@
     </owl:NamedIndividual>
     
 
-
     <!-- http://www.semanticweb.org/dataact#industrialRobot1 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/dataact#industrialRobot1">
@@ -2431,7 +2581,6 @@
         <generatesData rdf:resource="http://www.semanticweb.org/dataact#RobotData1"/>
         <rdfs:label>Industrial Robot 1</rdfs:label>
     </owl:NamedIndividual>
-    
 
 
     <!-- http://www.semanticweb.org/dataact#industrialRobot2 -->
@@ -2586,8 +2735,60 @@
         <dpv:hasRecipient rdf:resource="http://www.semanticweb.org/dataact#HealthAuthority"/>
         <rdfs:label>Watch Manufacturer (Non-Compliant)</rdfs:label>
     </owl:NamedIndividual>
-</rdf:RDF>
 
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // SKOS Collections for Conceptual Organization
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- Data Sharing Types Collection -->
+    <skos:Collection rdf:about="http://www.semanticweb.org/dataact#DataSharingTypesCollection">
+        <skos:prefLabel xml:lang="en">Data Sharing Types</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Tipos de Compartición de Datos</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Collection of the three main data sharing modalities defined in the EU Data Act: Business-to-Consumer (Chapter II), Business-to-Business (Chapter III), and Business-to-Government (Chapter V). These represent mutually exclusive pathways for data access and sharing.</skos:scopeNote>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#B2CDataSharing"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#B2BDataSharing"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#B2GDataSharing"/>
+    </skos:Collection>
+
+    <!-- Party Roles Collection -->
+    <skos:Collection rdf:about="http://www.semanticweb.org/dataact#PartyRolesCollection">
+        <skos:prefLabel xml:lang="en">Party Roles in Data Sharing</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Roles de Partes en Compartición de Datos</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Collection of key stakeholder roles defined in the Data Act. Users have rights to access data (Article 4), Data Holders control access to data (Article 2(13)), and Data Recipients receive data subject to FRAND terms.</skos:scopeNote>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#User"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#DataHolder"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#DataRecipient"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#ThirdParty"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#Manufacturer"/>
+    </skos:Collection>
+
+    <!-- FRAND Compliance Collection -->
+    <skos:Collection rdf:about="http://www.semanticweb.org/dataact#FRANDComplianceCollection">
+        <skos:prefLabel xml:lang="en">FRAND Compliance Requirements</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Requisitos de Cumplimiento FRAND</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Elements required for Fair, Reasonable, And Non-Discriminatory (FRAND) compliance in B2B data sharing (Article 8). Data sharing agreements must meet FRAND criteria, and terms that fail these requirements are considered unfair under Article 13.</skos:scopeNote>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#FRANDCondition"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#FRANDTerms"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#DataSharingAgreement"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#UnfairTerm"/>
+    </skos:Collection>
+
+    <!-- Legal Obligations Collection -->
+    <skos:Collection rdf:about="http://www.semanticweb.org/dataact#LegalObligationsCollection">
+        <skos:prefLabel xml:lang="en">Legal Obligations for Compliance</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">Obligaciones Legales para Cumplimiento</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">Key obligations imposed by the Data Act on data holders and processing services. Data holders must make data available under FRAND terms (Articles 8-12), respond to access requests within specified timeframes (Article 4), and ensure data portability.</skos:scopeNote>
+        <skos:member rdf:resource="https://www.w3.org/ns/odrl/2/Duty"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#FRANDCondition"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#ContractualTerm"/>
+        <skos:member rdf:resource="http://www.semanticweb.org/dataact#InteroperabilityStandard"/>
+    </skos:Collection>
+
+</rdf:RDF>
 
 
 <!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
