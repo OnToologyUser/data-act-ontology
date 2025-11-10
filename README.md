@@ -26,7 +26,7 @@ Applicable from September 12, 2025, the EU Data Act introduces complex requireme
       - Article 19(2)(a) – B2G competitive use prohibitions
 
 - Multi-Standard Integration
-- 
+
 - Automated Compliance Checking
   - SPARQL queries validate whether contractual terms satisfy Data Act requirements.
   - Python compliance checker (built with rdflib) executes reasoning tasks and reports results.
