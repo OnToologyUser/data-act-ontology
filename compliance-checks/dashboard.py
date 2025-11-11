@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""
-EU Data Act Compliance Dashboard - Streamlit Application
-"""
-
 import streamlit as st
 import pandas as pd
 import json
