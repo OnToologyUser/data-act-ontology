@@ -26,9 +26,9 @@ st.caption("Automated compliance monitoring under Regulation (EU) 2023/2854")
 is_cloud = "STREAMLIT_SERVER_ROOT" in os.environ
 
 base_path = Path(__file__).resolve().parent
-contracts_dir = base_path / "compliance-checks" / "contracts"
-reports_dir = base_path / "compliance-checks" / "compliance-reports"
-run_script_path = base_path / "compliance-checks" / "run_compliance_check.py"
+contracts_dir = base_path / "contracts"
+reports_dir = base_path / "compliance-reports"
+run_script_path = base_path / "run_compliance_check.py"
 
 # --------------------------------------------------------------
 # HELPER FUNCTIONS
@@ -47,18 +47,19 @@ def run_compliance_check_subprocess(script_path: Path):
 def run_compliance_check_direct():
     """Execute compliance checker by importing and running directly."""
     try:
-        # Add compliance-checks to path
-        sys.path.insert(0, str(base_path / "compliance-checks"))
-        
-        # Import and run
         from run_compliance_check import main as run_compliance
+        
+        # Crear carpeta de reportes si no existe
+        reports_dir.mkdir(exist_ok=True)
         
         # Run compliance check
         run_compliance()
         
         return True, "Compliance check completed successfully"
     except Exception as e:
-        return False, f"Error running compliance check: {str(e)}"
+        import traceback
+        error_details = traceback.format_exc()
+        return False, f"Error: {str(e)}\n\nDetails:\n{error_details}"
 
 
 def load_latest_report(reports_dir: Path):
@@ -113,6 +114,7 @@ if is_cloud:
         st.success("✅ Compliance check completed successfully")
     else:
         st.error("❌ No compliance reports found")
+        st.info(f"Looking in: {reports_dir}")
         st.stop()
 
 else:
