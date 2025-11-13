@@ -117,6 +117,12 @@ xsd:duration rdf:type rdfs:Datatype .
                                                           rdfs:label "plays role in" .
 
 
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> rdf:type owl:ObjectProperty ;
+                                           rdfs:comment "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity." ;
+                                           rdfs:label "was derived from" .
+
+
 ###  https://w3c.github.io/dpv/2.2/dpv/#hasData
 dpv:hasData rdf:type owl:ObjectProperty ;
             rdfs:domain dataact:DataHolder ;
@@ -199,6 +205,7 @@ dataact:createsRight rdf:type owl:ObjectProperty ;
 
 ###  https://w3id.org/def/dataact#derivesFrom
 dataact:derivesFrom rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://www.w3.org/ns/prov#wasDerivedFrom> ;
                     rdfs:domain dataact:LegalRule ;
                     rdfs:range dataact:LegalSource ;
                     rdfs:comment "Links rule to its legal source (article, regulation)" ;
@@ -342,11 +349,11 @@ dataact:hasParticipant rdf:type owl:ObjectProperty ;
                        rdfs:label "has participant" .
 
 
-###  https://w3id.org/def/dataact#hasPartyType
-dataact:hasPartyType rdf:type owl:ObjectProperty ;
-                     rdfs:domain odrl:Party ;
-                     rdfs:range dataact:PartyType ;
-                     rdfs:label "has party type" .
+###  https://w3id.org/def/dataact#hasPartyCategory
+dataact:hasPartyCategory rdf:type owl:ObjectProperty ;
+                         rdfs:domain odrl:Party ;
+                         rdfs:range dataact:PartyCategory ;
+                         rdfs:label "has party category" .
 
 
 ###  https://w3id.org/def/dataact#hasRightHolder
@@ -407,12 +414,12 @@ dataact:occursAt rdf:type owl:ObjectProperty ;
                  rdfs:label "occurs at" .
 
 
-###  https://w3id.org/def/dataact#ownsOrUses
-dataact:ownsOrUses rdf:type owl:ObjectProperty ;
-                   rdfs:domain dataact:User ;
-                   rdfs:range dataact:ConnectedProduct ;
-                   rdfs:comment "Article 2(12) - Ownership or contractual use" ;
-                   rdfs:label "owns or uses" .
+###  https://w3id.org/def/dataact#owns
+dataact:owns rdf:type owl:ObjectProperty ;
+             rdfs:domain dataact:User ;
+             rdfs:range dataact:ConnectedProduct ;
+             rdfs:comment "Article 2(12) - Ownership" ;
+             rdfs:label "owns" .
 
 
 ###  https://w3id.org/def/dataact#participatesIn
@@ -552,6 +559,15 @@ dataact:triggeredBy rdf:type owl:ObjectProperty ;
                     rdfs:label "triggered by" .
 
 
+###  https://w3id.org/def/dataact#uses
+dataact:uses rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain dataact:User ;
+             rdfs:range dataact:RelatedService ;
+             rdfs:comment "Article 2(12) - Contractual use" ;
+             rdfs:label "uses" .
+
+
 ###  https://w3id.org/def/dataact#validDuring
 dataact:validDuring rdf:type owl:ObjectProperty ;
                     rdfs:domain odrl:Agreement ;
@@ -585,7 +601,6 @@ odrl:constraint rdf:type owl:ObjectProperty ;
 
 ###  https://www.w3.org/ns/odrl/2/target
 odrl:target rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf owl:topObjectProperty ;
             rdfs:domain odrl:Rule ;
             rdfs:range odrl:Asset ;
             rdfs:comment "The target property indicates the Asset that is the primary subject to which the Rule action directly applies." ;
@@ -788,6 +803,11 @@ dataact:startTime rdf:type owl:DatatypeProperty ;
 
 ###  http://www.estrellaproject.org/lkif-core/norm.owl#Right
 <http://www.estrellaproject.org/lkif-core/norm.owl#Right> rdf:type owl:Class ;
+                                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty dataact:hasRightHolder ;
+                                                                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                            owl:onClass odrl:Party
+                                                                          ] ;
                                                           rdfs:comment "LKIF: Legal entitlement (Hohfeldian)" ;
                                                           rdfs:label "Right" .
 
@@ -818,7 +838,12 @@ dpv:NonPersonalData rdf:type owl:Class ;
 
 ###  https://w3c.github.io/dpv/2.2/dpv/#PersonalData
 dpv:PersonalData rdf:type owl:Class ;
-                 rdfs:subClassOf dataact:Data ;
+                 rdfs:subClassOf dataact:Data ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty dpv:hasDataSubject ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass dataact:NaturalPerson
+                                 ] ;
                  rdfs:comment "Data directly or indirectly associated or related to an individual" ;
                  rdfs:label "Personal Data" .
 
@@ -886,7 +911,12 @@ dataact:BusinessDataRecipient rdf:type owl:Class ;
 
 ###  https://w3id.org/def/dataact#ConnectedProduct
 dataact:ConnectedProduct rdf:type owl:Class ;
-                         rdfs:subClassOf odrl:Asset ;
+                         rdfs:subClassOf odrl:Asset ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty dataact:generatesData ;
+                                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass dataact:Data
+                                         ] ;
                          rdfs:comment "Article 2(5) - Product generating data" ;
                          rdfs:label "Connected Product" ;
                          skos:definition "Physical product that obtains, generates, or collects data concerning its use or environment and communicates this data via electronic means. The data generated by the product is subject to user access rights under Article 4 when user owns, rents, or leases the product."@en ;
@@ -975,7 +1005,17 @@ dataact:DataContentCondition rdf:type owl:Class ;
 
 ###  https://w3id.org/def/dataact#DataHolder
 dataact:DataHolder rdf:type owl:Class ;
-                   rdfs:subClassOf odrl:Party ;
+                   rdfs:subClassOf odrl:Party ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty dpv:hasData ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass dataact:Data
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty dataact:hasObligation ;
+                                     owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass odrl:Duty
+                                   ] ;
                    rdfs:comment "Article 2(13) - Has the right or obligation to control access to data" ;
                    rdfs:label "Data Holder" ;
                    skos:definition "A legal or natural person with the right or obligation to control access to data. MANDATORY OBLIGATIONS: (1) Provide data to users upon request (Article 4) via performsLegalAction→DataProvision, (2) Share with data recipients under FRAND terms (Article 8), (3) Justify refusals with trade secrets (Article 8(6))."@en ;
@@ -987,7 +1027,12 @@ dataact:DataHolder rdf:type owl:Class ;
 
 ###  https://w3id.org/def/dataact#DataIntermediationService
 dataact:DataIntermediationService rdf:type owl:Class ;
-                                  rdfs:subClassOf odrl:Party ;
+                                  rdfs:subClassOf odrl:Party ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty dataact:actsOnBehalfOf ;
+                                                    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onClass dataact:User
+                                                  ] ;
                                   rdfs:comment "Recitals 29-33 - Acts on behalf of user" ;
                                   rdfs:label "Data Intermediation Service" ;
                                   skos:definition "Service that facilitates data sharing by acting on behalf of users. Can exercise user rights under appropriate authorization. Regulated under Data Governance Act and referenced in Data Act Recitals 29-33."@en ;
@@ -1052,7 +1097,12 @@ dataact:DataRequest rdf:type owl:Class ;
 
 ###  https://w3id.org/def/dataact#DataSharing
 dataact:DataSharing rdf:type owl:Class ;
-                    rdfs:subClassOf dataact:LegalAction ;
+                    rdfs:subClassOf dataact:LegalAction ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty dataact:authorizedBy ;
+                                      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass dataact:User
+                                    ] ;
                     owl:disjointUnionOf ( dataact:B2BDataSharing
                                           dataact:B2CDataSharing
                                           dataact:B2GDataSharing
@@ -1097,7 +1147,7 @@ dataact:DataSpace rdf:type owl:Class ;
 
 ###  https://w3id.org/def/dataact#Enterprise
 dataact:Enterprise rdf:type owl:Class ;
-                   rdfs:subClassOf dataact:PartyType ;
+                   rdfs:subClassOf dataact:PartyCategory ;
                    rdfs:label "Enterprise" .
 
 
@@ -1228,17 +1278,17 @@ dataact:Microenterprise rdf:type owl:Class ;
 
 ###  https://w3id.org/def/dataact#NaturalPerson
 dataact:NaturalPerson rdf:type owl:Class ;
-                      rdfs:subClassOf dataact:PartyType ;
+                      rdfs:subClassOf dataact:PartyCategory ;
                       rdfs:label "Natural Person" .
 
 
-###  https://w3id.org/def/dataact#PartyType
-dataact:PartyType rdf:type owl:Class ;
-                  owl:disjointUnionOf ( dataact:Enterprise
-                                        dataact:NaturalPerson
-                                        dataact:PublicSectorBody
-                                      ) ;
-                  rdfs:label "Party Type" .
+###  https://w3id.org/def/dataact#PartyCategory
+dataact:PartyCategory rdf:type owl:Class ;
+                      owl:disjointUnionOf ( dataact:Enterprise
+                                            dataact:NaturalPerson
+                                            dataact:PublicSectorBody
+                                          ) ;
+                      rdfs:label "Party Category" .
 
 
 ###  https://w3id.org/def/dataact#ProductData
@@ -1256,7 +1306,7 @@ dataact:ProductData rdf:type owl:Class ;
 
 ###  https://w3id.org/def/dataact#PublicSectorBody
 dataact:PublicSectorBody rdf:type owl:Class ;
-                         rdfs:subClassOf dataact:PartyType ;
+                         rdfs:subClassOf dataact:PartyCategory ;
                          rdfs:comment "Article 2(28) - National/regional/local authority" ;
                          rdfs:label "Public Sector Body" ;
                          skos:definition "State, regional, or local authority, body governed by public law, or public undertaking that can request data under exceptional need (Article 15). CRITICAL PROHIBITION: Article 19(2)(a) FORBIDS using received data to develop products/services competing with private sector."@en ;
@@ -1454,13 +1504,23 @@ odrl:Constraint rdf:type owl:Class ;
 
 ###  https://www.w3.org/ns/odrl/2/Duty
 odrl:Duty rdf:type owl:Class ;
-          rdfs:subClassOf odrl:Rule ;
+          rdfs:subClassOf odrl:Rule ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty dataact:hasDutyBearer ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass odrl:Party
+                          ] ;
           rdfs:comment "The obligation to perform an Action" ;
           rdfs:label "Duty" .
 
 
 ###  https://www.w3.org/ns/odrl/2/Party
 odrl:Party rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty dataact:hasPartyCategory ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass dataact:PartyCategory
+                           ] ;
            rdfs:comment "An entity or a collection of entities that undertake Roles in a Rule." ;
            rdfs:label "Party" .
 
@@ -1481,6 +1541,11 @@ odrl:Prohibition rdf:type owl:Class ;
 
 ###  https://www.w3.org/ns/odrl/2/Rule
 odrl:Rule rdf:type owl:Class ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty odrl:action ;
+                            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass odrl:Action
+                          ] ;
           owl:disjointUnionOf ( odrl:Duty
                                 odrl:Permission
                                 odrl:Prohibition
