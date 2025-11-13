@@ -1,0 +1,187 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://vocab.linkeddata.es/ontology/report#numberVocabsWarning>
+        a       owl:DatatypeProperty .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2B-ROBOT-VIOLATIONOWL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/compliance-checks/contracts/contract-b2b-robot-violation.owl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2B-ROBOT-VIOLATION.OWL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#entrySubject>
+        a       rdf:Property .
+
+<http://vocab.linkeddata.es/ontology/report#REPORT1763042715374>
+        a           <http://vocab.linkeddata.es/ontology/report#Report> ;
+        rdfs:label  "Report created on Thu Nov 13 15:05:15 CET 2025" ;
+        <http://vocab.linkeddata.es/ontology/report#hasEntry>
+                <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUMISCONTOLOGYTTL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2G-HEALTH-VIOLATIONOWL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2C-CHARLIE-VIOLATIONOWL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUDATA_ACT_ONTOLOGYTTL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2G-HEALTH-COMPLIANCEOWL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2C-CHARLIE-COMPLIANCEOWL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUDATA_ACT_ONTOLOGYOWL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374INDIVIDUALSOWL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2B-ROBOT-COMPLIANCEOWL> , <http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2B-ROBOT-VIOLATIONOWL> ;
+        <http://vocab.linkeddata.es/ontology/report#numberVocabsError>
+                "1" ;
+        <http://vocab.linkeddata.es/ontology/report#numberVocabsOK>
+                "0" ;
+        <http://vocab.linkeddata.es/ontology/report#numberVocabsWarning>
+                "9" ;
+        <http://vocab.linkeddata.es/ontology/report#reportDate>
+                "Thu Nov 13 15:05:15 CET 2025"^^xsd:dateTime .
+
+<http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+        a       rdf:Property .
+
+rdfs:label  a   owl:DatatypeProperty .
+
+<http://vocab.linkeddata.es/ontology/report#reportDate>
+        a       owl:DatatypeProperty .
+
+<http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+        a       rdf:Property .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374INDIVIDUALSOWL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab individuals.owl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#GENERICERROR> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#INDIVIDUALS.OWL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#error" .
+
+<http://vocab.linkeddata.es/ontology/report#Error>
+        a       owl:Class .
+
+<http://vocab.linkeddata.es/ontology/report#Report>
+        a       owl:Class .
+
+<http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC>
+        a           <http://vocab.linkeddata.es/ontology/report#Warning> ;
+        rdfs:label  "Warning: title or description missing from vocabulary" .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2C-CHARLIE-COMPLIANCEOWL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/compliance-checks/contracts/contract-b2c-charlie-compliance.owl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2C-CHARLIE-COMPLIANCE.OWL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUDATA_ACT_ONTOLOGYTTL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/data_act_ontology.ttl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUDATA_ACT_ONTOLOGY.TTL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#GENERICERROR>
+        a           <http://vocab.linkeddata.es/ontology/report#Error> ;
+        rdfs:label  "Error: the vocabulary could not be loaded or processed" .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUMISCONTOLOGYTTL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/MISC/ontology.ttl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUMISCONTOLOGY.TTL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2B-ROBOT-COMPLIANCEOWL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/compliance-checks/contracts/contract-b2b-robot-compliance.owl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2B-ROBOT-COMPLIANCE.OWL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2G-HEALTH-VIOLATIONOWL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/compliance-checks/contracts/contract-b2g-health-violation.owl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2G-HEALTH-VIOLATION.OWL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#numberVocabsError>
+        a       owl:DatatypeProperty .
+
+<http://vocab.linkeddata.es/ontology/report#numberVocabsOK>
+        a       owl:DatatypeProperty .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUDATA_ACT_ONTOLOGYOWL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/data_act_ontology.owl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUDATA_ACT_ONTOLOGY.OWL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#Warning>
+        a       owl:Class .
+
+<http://vocab.linkeddata.es/ontology/report#Entry>
+        a       owl:Class .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2G-HEALTH-COMPLIANCEOWL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/compliance-checks/contracts/contract-b2g-health-compliance.owl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2G-HEALTH-COMPLIANCE.OWL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#hasEntry>
+        a       rdf:Property .
+
+<http://vocab.linkeddata.es/ontology/report#ENTRY1763042715374HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2C-CHARLIE-VIOLATIONOWL>
+        a           <http://vocab.linkeddata.es/ontology/report#Entry> ;
+        rdfs:label  "Entry for vocab /home/ahmad/repos/prevclone-PSlU/compliance-checks/contracts/contract-b2c-charlie-violation.owl" ;
+        <http://vocab.linkeddata.es/ontology/report#detectedProblem>
+                <http://vocab.linkeddata.es/ontology/report#MISSINGTITLEORDESC> ;
+        <http://vocab.linkeddata.es/ontology/report#entrySubject>
+                <http://vocab.linkeddata.es/ontology/report#/HOMEAHMADREPOSPREVCLONE-PSLUCOMPLIANCE-CHECKSCONTRACTSCONTRACT-B2C-CHARLIE-VIOLATION.OWL> ;
+        <http://vocab.linkeddata.es/ontology/report#isEntryOfReport>
+                <http://vocab.linkeddata.es/ontology/report#REPORT1763042715374> ;
+        <http://vocab.linkeddata.es/ontology/report#vocabularyStatus>
+                "http://vocab.linkeddata.es/ontology/report#warning" .
+
+<http://vocab.linkeddata.es/ontology/report#detectedProblem>
+        a       rdf:Property .
