@@ -1,4 +1,4 @@
-## EU Data Act Ontology
+## DAOnt: EU Data Act Ontology
 
 Formal Ontology for Automated Compliance with Regulation (EU) 2023/2854
 
